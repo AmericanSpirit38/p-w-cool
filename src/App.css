@@ -1,0 +1,70 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+
+
+body {
+    background: linear-gradient(135deg, #6ccccc 0%, #abfbfb 35%, #b16eff 70%, #526b6e 100%);
+    background-size: 200% 200%;
+    animation: backgroundMove 5s ease-in-out infinite;
+    min-height: 100vh;
+    margin: 0;
+    color: #1f2937;
+}
+
+@keyframes backgroundMove {
+    0% { background-position: 0 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0 50%; }
+}
+
+.logo:hover {
+    filter: drop-shadow(0 6px 18px rgba(99,102,241,0.12));
+}
+
+.logo.react:hover {
+    filter: drop-shadow(0 6px 18px rgba(97,189,170,0.12));
+}
+
+.name {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: #ffffff;
+    animation: title-spin infinite 1s linear alternate;
+}
+
+@keyframes title-spin {
+    0%   { transform: rotateX(-10deg) rotateY(-20deg) rotateZ(0deg); }
+    50%  { transform: rotateX(0deg)   rotateY(0deg) rotateZ(-15deg);    }
+    100% { transform: rotateX(10deg)  rotateY(20deg) rotateZ(0deg);  }
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+.logo{
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+    animation: logo-spin infinite 1.5s linear alternate;
+}
+.logo:hover{
+    animation-play-state: paused;
+}
+
+@keyframes logo-spin {
+    0% { transform: rotate(20deg); }
+    50% { transform: rotate(0deg); }
+    100% { transform: rotate(-20deg); }
+}
