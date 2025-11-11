@@ -1,17 +1,19 @@
 import React from 'react';
 import { useState } from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import githubLogo from './assets/github-icon.svg'
 import instagramLogo from './assets/instagram-icon.svg'
 import linkedinLogo from './assets/linkedin-icon.svg'
 import xLogo from './assets/x-icon.svg'
 import profilePicture from './assets/OliverSim.jpg'
 
+import Password from './Password.jsx'
+
 import './App.css'
 
-function App() {
+function Home() {
     const [ButtonPressCount, setButtonPressCount] = useState(0);
-  return (
-    <>
+    return (
         <div className="body">
             <div className="name">
                 <button onClick={() => {
@@ -26,37 +28,54 @@ function App() {
                     </div>
                 </button>
             </div>
+
             <div className="image-container">
                 <img src={profilePicture} alt="Profile picture"/>
             </div>
+
             <div className="logo-container">
                 <div className="logo">
-                    <a href="https://github.com/AmericanSpirit38" target="_blank">
+                    <a href="https://github.com/AmericanSpirit38" target="_blank" rel="noreferrer">
                         <img src={githubLogo} className="logo" alt="Linked github logo" />
                     </a>
                 </div>
+
                 <div className="logo">
-                    <a href="https://www.instagram.com/oliver.sim.9/" target="_blank">
+                    <a href="https://www.instagram.com/oliver.sim.9/" target="_blank" rel="noreferrer">
                         <img src={instagramLogo} className="logo" alt="linked instagram logo" />
                     </a>
                 </div>
+
                 <div className="logo">
-                    <a href="https://www.linkedin.com/in/oliver-sim-978b2b364/" target="_blank">
+                    <a href="https://www.linkedin.com/in/oliver-sim-978b2b364/" target="_blank" rel="noreferrer">
                         <img src={linkedinLogo} className="logo" alt="linked linkedIn logo" />
                     </a>
                 </div>
+
                 <div className="logo">
-                    <a href="https://x.com/OliverSim10" target="_blank">
+                    <a href="https://x.com/OliverSim10" target="_blank" rel="noreferrer">
                         <img src={xLogo} className="logo" alt="linked x logo" />
                     </a>
                 </div>
 
+                <div className="logo">
+                    <Link to="/password">
+                        {/* Replace `githubLogo` with your new logo asset if desired */}
+                        <img src={githubLogo} className="logo" alt="Go to password page" />
+                    </Link>
+                </div>
             </div>
-
-
         </div>
-    </>
-  )
+    );
 }
 
-export default App
+export default function App() {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/password" element={<Password />} />
+            </Routes>
+        </BrowserRouter>
+    );
+}
