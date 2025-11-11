@@ -4,6 +4,7 @@ import githubLogo from './assets/github-icon.svg'
 import instagramLogo from './assets/instagram-icon.svg'
 import linkedinLogo from './assets/linkedin-icon.svg'
 import xLogo from './assets/x-icon.svg'
+import profilePicture from './assets/OliverSim.jpg'
 
 import './App.css'
 
@@ -17,13 +18,16 @@ function App() {
                     alert("Hello visitor! Can you find the secret? " + (5 - ButtonPressCount));
                     setButtonPressCount(c => c + 1);
                     if (ButtonPressCount + 1 > 5) {
-                        alert("Congratulations! You've found the secret by clicking the name 5 times!");
+                        alert("Is there something wrong with the image? Seems like something is hidden there... ");
                     }
                 }}>
                     <div className="name">
                         Oliver Sim
                     </div>
                 </button>
+            </div>
+            <div className="image-container">
+                <img src={profilePicture} alt="Profile picture"/>
             </div>
             <div className="logo-container">
                 <div className="logo">
@@ -46,6 +50,7 @@ function App() {
                         <img src={xLogo} className="logo" alt="linked x logo" />
                     </a>
                 </div>
+
             </div>
 
 

@@ -39,12 +39,43 @@ body {
     animation: title-spin infinite 1s linear alternate;
 }
 
+
 @keyframes title-spin {
     0%   { transform: rotateX(-10deg) rotateY(-20deg) rotateZ(0deg); }
     50%  { transform: rotateX(0deg)   rotateY(0deg) rotateZ(-15deg);    }
     100% { transform: rotateX(10deg)  rotateY(20deg) rotateZ(0deg);  }
 }
 
+
+.image-container {
+    padding: 2rem;
+    perspective: 800px;
+    display: inline-block;
+    max-width: 12rem;
+    box-sizing: border-box;
+}
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    transform-origin: center;
+    animation: image-effect 3s ease-in-out infinite;
+}
+
+@keyframes image-effect {
+    0% {
+        transform: rotateY(0deg) scale(1);
+        filter: brightness(1);
+    }
+    50% {
+        transform: rotateY(15deg) scale(1.05);
+        filter: brightness(1.1);
+    }
+    100% {
+        transform: rotateY(0deg) scale(1);
+        filter: brightness(1);
+    }
+}
 .logo-container {
     display: flex;
     justify-content: center;
