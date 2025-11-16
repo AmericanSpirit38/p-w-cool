@@ -8,6 +8,7 @@ import xLogo from './assets/x-icon.svg'
 import profilePicture from './assets/OliverSim.jpg'
 
 import Password from './Password.jsx'
+import Secret from './Secret.jsx'
 
 import './App.css'
 
@@ -60,7 +61,6 @@ function Home() {
 
                 <div className="logo">
                     <Link to="/password">
-                        {/* Replace `githubLogo` with your new logo asset if desired */}
                         <img src={githubLogo} className="logo" alt="Go to password page" />
                     </Link>
                 </div>
@@ -75,6 +75,7 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/password" element={<Password />} />
+                <Route path="/jfsdi" element={<Secret />} />
             </Routes>
         </BrowserRouter>
     );

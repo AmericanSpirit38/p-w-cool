@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./Password.css"
+import {Link} from "react-router-dom";
 export default function Password() {
     const [password, setPassword] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (password === "xxx") {
-            alert("Password matched.");
+        if (password === "Bratislava") {
+            alert("Congratulations! You've entered the correct password.");
         } else {
             alert("Incorrect password.");
         }
@@ -26,9 +27,18 @@ export default function Password() {
                         aria-label="password"
                     />
                 </label>
+                <div className="button-confirm">
                 <button type="submit" style={{ marginTop: 12 }}>
                     Submit
                 </button>
+                </div>
+                <Link to="/">
+                    <div className="button-cancel">
+                    <button type="button" style={{ marginTop: 12 }}>
+                        Cancel
+                    </button>
+                    </div>
+                </Link>
             </form>
         </main>
     );
