@@ -6,6 +6,7 @@ import instagramLogo from './assets/instagram-icon.svg'
 import linkedinLogo from './assets/linkedin-icon.svg'
 import xLogo from './assets/x-icon.svg'
 import profilePicture from './assets/OliverSim.jpg'
+import lock from './assets/lock.svg'
 
 import Password from './Password.jsx'
 import Secret from './Secret.jsx'
@@ -61,7 +62,7 @@ function Home() {
 
                 <div className="logo">
                     <Link to="/password">
-                        <img src={githubLogo} className="logo" alt="Go to password page" />
+                        <img src={lock} className="logo" alt="Go to password page" />
                     </Link>
                 </div>
             </div>

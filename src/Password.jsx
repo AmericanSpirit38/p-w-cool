@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import "./Password.css"
-import {Link} from "react-router-dom";
+import {Link,  useNavigate} from "react-router-dom";
+
 export default function Password() {
     const [password, setPassword] = useState("");
-
+    const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
         if (password === "Bratislava") {
-            alert("Congratulations! You've entered the correct password.");
+            navigate("/jfsdi")
         } else {
             alert("Incorrect password.");
         }

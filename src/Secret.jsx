@@ -1,49 +1,40 @@
-import React from "react";
-import "./Secret.css"
+// src/Secret.jsx
+import React, { useEffect } from "react";
 
-function randomBackgroundColor() {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
+function useRandomBodyBackground(intervalMs = 100) {
+    useEffect(() => {
+        const originalInline = {
+            background: document.body.style.background,
+            animation: document.body.style.animation,
+        };
 
-function SetBackground() {
-    React.useEffect(() => {
-        const originalColor = document.body.style.backgroundColor;
-        const newColor = randomBackgroundColor();
-        document.body.style.backgroundColor = newColor;
+        document.body.style.setProperty("animation", "none", "important");
+        document.body.style.setProperty("background", "none", "important");
+
+        const applyColor = () => {
+            const color =
+                "#" + Math.floor(Math.random() * 0xffffff).toString(16).padStart(6, "0");
+            document.body.style.setProperty("background-color", color, "important");
+        };
+
+        applyColor();
+        const id = setInterval(applyColor, intervalMs);
 
         return () => {
-            document.body.style.backgroundColor = originalColor;
+            clearInterval(id);
+            document.body.style.background = originalInline.background;
+            document.body.style.animation = originalInline.animation;
+            document.body.style.removeProperty("background-color");
         };
-    }, []);
-
-    return null;
-}
-
-function Timer(interval) {
-    React.useEffect(() => {
-        const timer = setInterval(() => {
-            const newColor = randomBackgroundColor();
-            document.body.style.backgroundColor = newColor;
-        }, interval);
-
-        return () => clearInterval(timer);
-    }, [interval]);
-
-    return null;
+    }, [intervalMs]);
 }
 
 export default function Secret() {
-    SetBackground();
-    Timer(100);
+    useRandomBodyBackground(100);
     return (
-        <main style={{ padding: 20, maxWidth: 480, color: 'white', backgroundColor: 'black' }}>
+        <main style={{ padding: 20, maxWidth: 480, color: "#fff", background: "black" }}>
             <h1>Secret Page</h1>
-            <p>Congratulations! You've found the secret page.</p>
+            <p>Congratulations! You&apos;ve found the secret page.</p>
             <p>Thanks for playing</p>
         </main>
     );
