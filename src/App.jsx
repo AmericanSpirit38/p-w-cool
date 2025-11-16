@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import githubLogo from './assets/github-icon.svg'
 import instagramLogo from './assets/instagram-icon.svg'
 import linkedinLogo from './assets/linkedin-icon.svg'
@@ -72,12 +72,10 @@ function Home() {
 
 export default function App() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/password" element={<Password />} />
-                <Route path="/jfsdi" element={<Secret />} />
-            </Routes>
-        </BrowserRouter>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/password" element={<Password />} />
+            <Route path="/jfsdi" element={<Secret />} />
+        </Routes>
     );
 }
