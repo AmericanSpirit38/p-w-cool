@@ -32,7 +32,36 @@ A small personal website built with React and Vite that doubles as a mini scaven
    npm run dev
    ```
 
-4. Open the URL printed in the terminal (usually `http://localhost:5173` for Vite).
+4. Open the URL printed in the terminal (usually `http://localhost:5173/p-w-cool/` for Vite).
+
+---
+
+## Deploying to GitHub Pages
+
+This project is configured to deploy to GitHub Pages at `https://americanspirit38.github.io/p-w-cool/`.
+
+### One-time Setup
+
+1. Ensure GitHub Pages is enabled for your repository:
+   - Go to repository Settings → Pages
+   - Under "Build and deployment", set Source to "Deploy from a branch"
+   - Select the `gh-pages` branch and `/ (root)` folder
+   - Click Save
+
+### Deploying Updates
+
+To deploy your changes to GitHub Pages, run:
+
+```bash
+npm run deploy
+```
+
+This will:
+1. Build the production version (`npm run build`)
+2. Push the `dist` folder contents to the `gh-pages` branch
+3. Automatically trigger GitHub Pages to update your live site
+
+The site should be live at `https://americanspirit38.github.io/p-w-cool/` within a few minutes.
 
 ---
 
