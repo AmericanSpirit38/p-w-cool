@@ -1,4 +1,4 @@
-# p-w-cool
+# Personal Webite
 
 A small personal website built with React and Vite that doubles as a mini scavenger hunt. Visitors land on a playful profile page, discover hints, unlock a password screen, and eventually reach a hidden “secret” page.
 
